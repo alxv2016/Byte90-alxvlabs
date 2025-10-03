@@ -44,7 +44,7 @@ While the base software is open-source, **the animations, original designs, and 
 
 ### Current Firmware Version
 - Version: 2.0.0 (Series 1 and 2)
-- Release Date: September 20, 2025
+- Release Date: October 3, 2025
 - Compatibility: Only XIAO ESP32S3 hardware and BYTE-90 Series 2 PCB.
 
 ## Hardware Components (Series 1)
@@ -513,4 +513,4 @@ For bug reports, feature requests, and detailed contribution guidelines, see [Le
 
 *Designed and developed by Alex Vong, ALXV LABS. This project represents the intersection of retro computing nostalgia and modern interactive design, creating a unique interactive designer toy experience for makers and collectors alike.*
 
-**Version**: 1.0.1 | **Last Updated**: June 7, 2025 | **License**: GPL v3.0 | **Legal**: [CONTRIBUTING.md](CONTRIBUTING.md)
+**Version**: 2.0.0 | **Last Updated**: October 3, 2025 | **License**: GPL v3.0 | **Legal**: [CONTRIBUTING.md](CONTRIBUTING.md)
