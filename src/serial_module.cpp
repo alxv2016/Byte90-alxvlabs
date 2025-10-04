@@ -136,6 +136,26 @@ static String formatBytes(size_t bytes) {
 }
 
 /**
+ * @brief Get string representation of current system mode
+ *
+ * @return String representation of the current system mode
+ */
+static String getSystemModeString() {
+  SystemMode mode = getCurrentMode();
+  
+  switch (mode) {
+    case SystemMode::ESP_MODE:
+      return "ESP Mode";
+    case SystemMode::UPDATE_MODE:
+      return "Update Mode";
+    case SystemMode::CRASH_MODE:
+      return "Crash Mode";
+    default:
+      return "Unknown Mode";
+  }
+}
+
+/**
  * @brief Get string representation of current serial update state
  *
  * @return String representation of the current serial update state
@@ -200,10 +220,7 @@ static String createDeviceInfoResponse(bool success, String message) {
       ",\"flash_size\":\"" + formatBytes(flashSize) + "\"" +
       ",\"flash_available\":\"" + String(fsInfo.freeSpaceMB, 2) + "MB\"" +
       ",\"free_heap\":\"" + formatBytes(freeHeap) + "\"" +
-      ",\"current_mode\":\"" +
-      String((getCurrentMode() == SystemMode::UPDATE_MODE) ? "Update Mode"
-                                                           : "Standby Mode") +
-      "\"";
+      ",\"current_mode\":\"" + getSystemModeString() + "\"";
 
   // Add partition information
   const esp_partition_t *running = esp_ota_get_running_partition();
@@ -235,9 +252,7 @@ static String createStatusResponse(bool success, String message) {
   return "{\"success\":" + String(success ? "true" : "false") +
          ",\"message\":\"" + message + "\"" + ",\"state\":\"" +
          String(getSerialStateString()) + "\"" + ",\"system_mode\":\"" +
-         String((getCurrentMode() == SystemMode::UPDATE_MODE)
-                    ? "Update Mode"
-                    : "Standby Mode") +
+         getSystemModeString() +
          "\"" + ",\"wifi_connected\":" +
          String((WiFi.status() == WL_CONNECTED) ? "true" : "false") +
          ",\"update_active\":" +

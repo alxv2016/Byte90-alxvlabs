@@ -26,7 +26,8 @@
   */
  enum class SystemMode {
    ESP_MODE,     /**< Default mode - ESP-NOW communication */
-   UPDATE_MODE   /**< WiFi configuration and OTA update mode */
+   UPDATE_MODE,   /**< WiFi configuration and OTA update mode */
+   CRASH_MODE    /**< Crash mode - display crash image */
  };
  
  //==============================================================================
